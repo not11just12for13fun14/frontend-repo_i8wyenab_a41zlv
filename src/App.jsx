@@ -1,71 +1,97 @@
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Section from './components/Section'
+import Footer from './components/Footer'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+    <div className="min-h-screen bg-[#FAFAF6] text-neutral-800">
+      <Navbar />
 
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
-            </div>
+      <main className="mx-auto max-w-5xl">
+        <Hero />
 
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
-
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
-            </p>
-          </div>
-
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
-            </p>
-          </div>
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="h-px bg-neutral-200/80" />
         </div>
-      </div>
+
+        <Section id="principles" title="Design Principles">
+          <ul className="list-disc pl-6 space-y-3">
+            <li>Wide margins and spacious line height for effortless scanning.</li>
+            <li>Neutral off-white canvas with thin charcoal typography.</li>
+            <li>One accent only: a soft sage for links and highlights.</li>
+            <li>Subtle dividers guide rhythm without visual noise.</li>
+            <li>Micro-interactions: gentle fade-in and smooth scrolling.</li>
+          </ul>
+        </Section>
+
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="h-px bg-neutral-200/80" />
+        </div>
+
+        <Section id="essays" title="Highlighted Ideas">
+          <p>
+            This experience focuses on unhurried reading. Headings are light and elegant; body text sits at 18–19px, tuned for calm comprehension. Links and actionable elements use a soft sage hue with restrained hover motion.
+          </p>
+          <p className="mt-6">
+            Content is organized into clear sections with a gentle vertical cadence. A simple hierarchy, ample white space, and quiet color keep attention on the words.
+          </p>
+        </Section>
+
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="h-px bg-neutral-200/80" />
+        </div>
+
+        <Section id="resources" title="Resources">
+          <ul className="space-y-3">
+            <li>
+              <a href="#" className="text-sage-700 hover:text-sage-800 transition-colors underline decoration-sage-300/60 underline-offset-4">
+                Core teachings overview
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-sage-700 hover:text-sage-800 transition-colors underline decoration-sage-300/60 underline-offset-4">
+                Transcripts and archives
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-sage-700 hover:text-sage-800 transition-colors underline decoration-sage-300/60 underline-offset-4">
+                Related materials
+              </a>
+            </li>
+          </ul>
+        </Section>
+      </main>
+
+      <Footer />
+
+      {/* Accent + micro-interactions */}
+      <style>{`
+        :root {
+          --sage-50: #f7faf7;
+          --sage-100: #ecf3ec;
+          --sage-200: #d9e7da;
+          --sage-300: #c0d6c1;
+          --sage-600: #6f8c73;
+          --sage-700: #5f7c63;
+          --sage-800: #4c6450;
+        }
+        .text-sage-700 { color: var(--sage-700); }
+        .hover\\:text-sage-800:hover { color: var(--sage-800); }
+        .decoration-sage-300\\/60 { text-decoration-color: rgba(192,214,193,0.6); }
+
+        [data-fade] { opacity: 0; transform: translateY(6px); transition: opacity .6s ease, transform .6s ease; }
+        [data-fade].show { opacity: 1; transform: translateY(0); }
+      `}</style>
+
+      <script dangerouslySetInnerHTML={{__html: `
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('show')
+          })
+        }, { threshold: 0.08 })
+        document.querySelectorAll('[data-fade]').forEach(el => observer.observe(el))
+      `}} />
     </div>
   )
 }
